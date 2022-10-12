@@ -65,11 +65,11 @@ int main(){
         break;
 
         case 2:{
-        char mes[3], ano[3];
+        char mes[3], ano[5];
         int retorno2;
 
             if (cp == 0)
-                printf("A empresa não possui contas a pagar");
+                printf("A empresa não possui contas a pagar\n");
 
             else{
                 fflush(stdin);
@@ -92,7 +92,7 @@ int main(){
                     }
                  }
                 if (existeConta == 0)
-                        printf("não possui despesas para o mes %s \n", mes);
+                        printf("não possui despesas para o mes %s e ano %s \n", mes, ano);
              }
                 if (total_desp > 0)
                     printf("O total de despesas para o mes %s é %.2f\n", mes, total_desp);
