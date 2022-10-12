@@ -43,6 +43,7 @@ int main(){
             case 1:     // o usuario cadastra contas a pagar do cliente
             printf("Olá, para efetuar um cadastro de contas a pagar digite os dados abaixo: \n");
             do{
+                //chamada funcao criarContaPagar()
                 pagar[count_p] = criarContaPagar();
                 printf("\nDeseja fazer outro cadastro (s/n)?: ");
                 resposta = getche();
@@ -71,7 +72,7 @@ int main(){
             }while(resposta == 's' && count_r < tam);
         break;
 
-        case 3:{
+        case 3:{ // usuario consulta contas a pagar
         char mes[3], ano[5];
         int retorno2;
 
@@ -108,7 +109,7 @@ int main(){
 
     }while (op != 0);
 
-    case 4:{
+    case 4:{ // usuario consulta contas a receber
         char mes[3], ano[5];
         int retorno2;
 
@@ -126,7 +127,7 @@ int main(){
                 int existeConta = 0;
                 for (int i = 0; i < cr; i++){
                     retorno = strcmp(receber[i].mes,mes); // compara a string e for igual resultado será 0
-                    retorno2 = strcmp(receber[i].ano,ano);
+                    retorno2 = strcmp(receber[i].ano,ano);// compara a string e for igual resultado será 0
                     if (retorno == 0 && retorno2 == 0){
                         printf("\nCliente:%s \n", receber[i].nome);
                         printf("Data do recebimento:%02s/%02s/%04s \n", receber[i].dia, receber[i].mes, receber[i].ano);
@@ -147,6 +148,7 @@ int main(){
     }while (op != 0);
 }
 
+// criando funcoes
 c_receber criarContaReceber() {
     c_receber conta;
     fflush(stdin);
