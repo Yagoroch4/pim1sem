@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1665591608 source:c:\users\yago_\desktop\unip\pim\pim\main.c
+1665601600 source:c:\users\yago_\desktop\unip\pim\pim\main.c
 	<stdio.h>
 	<ctype.h>
 	<locale.h>
