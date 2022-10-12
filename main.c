@@ -4,16 +4,18 @@
 #include <string.h>
 
 typedef struct{
-char nome[30], dia[3], mes[3], ano[5];
-float valor;
+    char nome[30], dia[3], mes[3], ano[5];
+    float valor;
 }c_pagar;
 
 typedef struct{
-char nome[30], dia[3], mes[3], ano[5];
-float valor;
+    char nome[30], dia[3], mes[3], ano[5];
+    float valor;
 }c_receber;
 
+//prototipos funcoes
 c_receber criarContaReceber();
+c_pagar criarContaPagar();
 
 int main(){
 
@@ -41,22 +43,7 @@ int main(){
             case 1:     // o usuario cadastra contas a pagar do cliente
             printf("Olá, para efetuar um cadastro de contas a pagar digite os dados abaixo: \n");
             do{
-                fflush(stdin);
-                printf("Digite o nome da fornecedor: \n");
-                gets(pagar[count_p].nome);
-                fflush(stdin);
-                printf("Insira o dia de vencimento da conta: \n");
-                scanf("%s", &pagar[count_p].dia);
-                fflush(stdin);
-                printf("Insira mes de vencimento da conta: \n");
-                scanf("%s", &pagar[count_p].mes);
-                fflush(stdin);
-                printf("Insira ano de vencimento da conta: \n");
-                scanf("%s", &pagar[count_p].ano);
-                fflush(stdin);
-                printf("digite o valor da conta: \n");
-                scanf("%f", &pagar[count_p].valor);
-                fflush(stdin);
+                pagar[count_p] = criarContaPagar();
                 printf("\nDeseja fazer outro cadastro (s/n)?: ");
                 resposta = getche();
                 resposta = tolower(resposta); // converte a resposta do usuário para um caractere minúsculo
@@ -69,6 +56,7 @@ int main(){
         break;
 
         case 2:     // o usuario cadastra contas a receber do cliente
+            printf("Olá, para efetuar um cadastro de contas a receber digite os dados abaixo: \n");
             do{
                 //chamada funcao criarContaReceber()
                 receber[count_r] = criarContaReceber();
@@ -150,7 +138,7 @@ int main(){
                 if (existeConta == 0)
                         printf("não possui contas para receber no mes %s e ano %s \n", mes, ano);
              }
-                if (total_desp > 0)
+                if (total_rec > 0)
                     printf("O total de receita para o mes %s é %.2f\n", mes, total_rec);
                 total_rec = 0;
             break;
@@ -161,7 +149,6 @@ int main(){
 }
 
 c_receber criarContaReceber() {
-    printf("Olá, para efetuar um cadastro de contas a receber digite os dados abaixo: \n");
     c_receber conta;
     fflush(stdin);
     printf("Digite o nome do cliente: \n");
@@ -180,4 +167,25 @@ c_receber criarContaReceber() {
     scanf("%f", &conta.valor);
     fflush(stdin);
     return conta;
+}
+
+c_pagar criarContaPagar(){
+    c_pagar contaPagar;
+    fflush(stdin);
+    printf("Digite o nome da fornecedor: \n");
+    gets(contaPagar.nome);
+    fflush(stdin);
+    printf("Insira o dia de vencimento da conta: \n");
+    scanf("%s", &contaPagar.dia);
+    fflush(stdin);
+    printf("Insira mes de vencimento da conta: \n");
+    scanf("%s", &contaPagar.mes);
+    fflush(stdin);
+    printf("Insira ano de vencimento da conta: \n");
+    scanf("%s", &contaPagar.ano);
+    fflush(stdin);
+    printf("digite o valor da conta: \n");
+    scanf("%f", &contaPagar.valor);
+    fflush(stdin);
+    return contaPagar;
 }
