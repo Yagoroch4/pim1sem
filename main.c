@@ -21,6 +21,7 @@ int main(){
     float total_desp = 0;
     c_pagar pagar[100];
     c_receber receber[100];
+    char dataUsuario[10];
 
 
     do{
@@ -41,15 +42,15 @@ int main(){
                 printf("Digite o nome da fornecedor: \n");
                 gets(pagar[i].nome);
                 fflush(stdin);
-                printf("Insira o dia de vencimento da conta: \n");
-                scanf("%s", &pagar[i].dia);
+                printf("Insira a data de vencimento da conta ex.(dd/MM/yyyy): \n");
+                scanf("%s", &dataUsuario);
                 fflush(stdin);
-                printf("Insira mes de vencimento da conta: \n");
-                scanf("%s", &pagar[i].mes);
-                fflush(stdin);
-                printf("Insira ano de vencimento da conta: \n");
-                scanf("%s", &pagar[i].ano);
-                fflush(stdin);
+//                printf("Insira mes de vencimento da conta: \n");
+//                scanf("%s", &pagar[i].mes);
+//                fflush(stdin);
+//                printf("Insira ano de vencimento da conta: \n");
+//                scanf("%s", &pagar[i].ano);
+//                fflush(stdin);
                 printf("digite o valor da conta: \n");
                 scanf("%f", &pagar[i].valor);
                 fflush(stdin);
@@ -65,7 +66,7 @@ int main(){
         break;
 
         case 2:{
-        char mes[3];
+            char mes[3];
 
             if (cp == 0)
                 printf("A empresa não possui contas a pagar");
@@ -76,7 +77,20 @@ int main(){
                 scanf("%s", &mes);
                 int existeConta = 0;
                 for (i = 0; i < cp; i++){
+
+                    char *inDia;
+                    char *inMes;
+                    char *inAno;
+
                     retorno = strcmp(pagar[i].mes,mes); // compara a string e for igual resultado será 0
+                    inDia = strtok(dataUsuario, "/");
+                    inMes = strtok(NULL, "/");
+                    inAno = strtok(NULL, "/");
+
+                    pagar[i].dia = *inDia;
+                    pagar[i].mes = *inMes;
+                    pagar[i].ano = *inAno;
+
                     if (retorno == 0){
                         printf("\nFornecedor:%s \n", pagar[i].nome);
                         printf("Data da compra:%02s/%02s/%04s \n", pagar[i].dia, pagar[i].mes, pagar[i].ano);
