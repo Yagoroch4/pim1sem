@@ -13,6 +13,8 @@ char nome[30], dia[3], mes[3], ano[5];
 float valor;
 }c_receber;
 
+c_receber criarContaReceber();
+
 int main(){
 
     setlocale (LC_ALL, "portuguese");
@@ -66,26 +68,10 @@ int main(){
             }while(resposta == 's' && count_p < tam);
         break;
 
-        case 2:     // o usuario cadastra contas a pagar do cliente
-
-            printf("Olá, para efetuar um cadastro de contas a receber digite os dados abaixo: \n");
+        case 2:     // o usuario cadastra contas a receber do cliente
             do{
-                fflush(stdin);
-                printf("Digite o nome do cliente: \n");
-                gets(receber[count_r].nome);
-                fflush(stdin);
-                printf("Insira o dia de recebimento da conta: \n");
-                scanf("%s", &receber[count_r].dia);
-                fflush(stdin);
-                printf("Insira mes de recebimento da conta: \n");
-                scanf("%s", &receber[count_r].mes);
-                fflush(stdin);
-                printf("Insira ano de recebimento da conta: \n");
-                scanf("%s", &receber[count_r].ano);
-                fflush(stdin);
-                printf("digite o valor a receber: \n");
-                scanf("%f", &receber[count_r].valor);
-                fflush(stdin);
+                //chamada funcao criarContaReceber()
+                receber[count_r] = criarContaReceber();
                 printf("\nDeseja fazer outro cadastro (s/n)?: ");
                 resposta = getche();
                 resposta = tolower(resposta); // converte a resposta do usuário para um caractere minúsculo
@@ -150,13 +136,13 @@ int main(){
                 scanf("%s", &ano);
 
                 int existeConta = 0;
-                for (int i = 0; i < cp; i++){
+                for (int i = 0; i < cr; i++){
                     retorno = strcmp(receber[i].mes,mes); // compara a string e for igual resultado será 0
                     retorno2 = strcmp(receber[i].ano,ano);
                     if (retorno == 0 && retorno2 == 0){
-                        printf("\nFornecedor:%s \n", receber[i].nome);
-                        printf("Data da compra:%02s/%02s/%04s \n", receber[i].dia, receber[i].mes, receber[i].ano);
-                        printf("Valor da compra:%.2f \n", receber[i].valor);
+                        printf("\nCliente:%s \n", receber[i].nome);
+                        printf("Data do recebimento:%02s/%02s/%04s \n", receber[i].dia, receber[i].mes, receber[i].ano);
+                        printf("Valor a receber:%.2f \n", receber[i].valor);
                         total_rec += receber[i].valor;
                         existeConta++;
                     }
@@ -172,4 +158,26 @@ int main(){
         }
     }while (op != 0);
 
+}
+
+c_receber criarContaReceber() {
+    printf("Olá, para efetuar um cadastro de contas a receber digite os dados abaixo: \n");
+    c_receber conta;
+    fflush(stdin);
+    printf("Digite o nome do cliente: \n");
+    gets(conta.nome);
+    fflush(stdin);
+    printf("Insira o dia de recebimento da conta: \n");
+    scanf("%s", &conta.dia);
+    fflush(stdin);
+    printf("Insira mes de recebimento da conta: \n");
+    scanf("%s", &conta.mes);
+    fflush(stdin);
+    printf("Insira ano de recebimento da conta: \n");
+    scanf("%s", &conta.ano);
+    fflush(stdin);
+    printf("digite o valor a receber: \n");
+    scanf("%f", &conta.valor);
+    fflush(stdin);
+    return conta;
 }
