@@ -86,7 +86,6 @@ int main(){
                     else if (retorno != 0)
                         printf("não possui despesas para o mes %s \n", mes);
                  }
-
              }
                 if (total_desp > 0)
                 printf("O total de despesas para o mes %s é %.2f\n", mes, total_desp);
@@ -97,40 +96,4 @@ int main(){
 
     }while (op != 0);
 
-
-
-
-
-    // o usuario consulta as contas a pagar no mes
-
 }
-/*
-
-    do {
-        printf("----------------------------------------\n");
-        printf("------SEJA BEM-VINDO À CLÍNICA A&G------\n");
-        printf("----------------------------------------\n\n");
-        printf("\n---------------CADASTROS-------------------\n\n");
-        printf("[1] CADASTRAR COLABORADOR\n");
-        printf("[2] CADASTRAR MORADOR\n");
-        printf("[3] CADASTRAR VISITANTE\n");
-        printf("\n--------------ALTERAR DADOS----------------\n\n");
-        printf("[4] ALTERAR DADOS DE COLABORADOR\n");
-        printf("[5] ALTERAR DADOS DE MORADOR\n");
-        printf("[6] ALTERAR DADOS DE VISITANTE\n");
-        printf("\n--------------RELATÓRIOS-------------------\n\n");
-        printf("[10] CONTAS A PAGAR\n");
-        printf("[11] CONTAS A RECEBER\n");
-        printf("[12] FATURAMENTO DIÁRIO E MENSAL\n");
-        printf("[12] LUCRO LIQUIDO MES\n");
-        printf("\n--------------BUSCAR---------------------\n\n");
-        printf("[13] BUSCAR VEICULO POR PLACA\n");
-        printf("[14] BUSCAR MORADOR POR NOME\n");
-        printf("[14] BUSCAR COLABORADOR POR NOME\n");
-        printf("\n---------------------------------------\n\n");
-        printf("[15] AVALIE NOSSO ATENDIMENTO\n");
-        printf("[0] SAIR \n");
-        printf("\nEscolha uma opção:");
-        scanf("%d", &op);
-
-*/
