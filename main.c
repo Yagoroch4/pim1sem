@@ -74,6 +74,7 @@ int main(){
                 fflush(stdin);
                 printf("\nInforme o mês: ");
                 scanf("%s", &mes);
+                int existeConta = 0;
                 for (i = 0; i < cp; i++){
                     retorno = strcmp(pagar[i].mes,mes); // compara a string e for igual resultado será 0
                     if (retorno == 0){
@@ -81,14 +82,14 @@ int main(){
                         printf("Data da compra:%02s/%02s/%04s \n", pagar[i].dia, pagar[i].mes, pagar[i].ano);
                         printf("Valor da compra:%.2f \n", pagar[i].valor);
                         total_desp = total_desp + pagar[i].valor;
-
+                        existeConta++;
                     }
-                    else if (retorno != 0)
-                        printf("não possui despesas para o mes %s \n", mes);
                  }
+                if (existeConta == 0)
+                        printf("não possui despesas para o mes %s \n", mes);
              }
                 if (total_desp > 0)
-                printf("O total de despesas para o mes %s é %.2f\n", mes, total_desp);
+                    printf("O total de despesas para o mes %s é %.2f\n", mes, total_desp);
                 total_desp = 0;
             break;
             }
