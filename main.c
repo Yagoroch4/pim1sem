@@ -102,7 +102,7 @@ int main(){
                         printf("não possui despesas para o mes %s e ano %s \n", mes, ano);
              }
                 if (total_desp > 0)
-                    printf("O total de despesas para o mes %s é %.2f\n", mes, total_desp);
+                    printf("\nO total de despesas para o mes %s é %.2f\n", mes, total_desp);
                 total_desp = 0;
             break;
 
@@ -139,13 +139,12 @@ int main(){
                         printf("não possui contas para receber no mes %s e ano %s \n", mes, ano);
              }
                 if (total_rec > 0)
-                    printf("O total de receita para o mes %s é %.2f\n", mes, total_rec);
+                    printf("\nO total de receita para o mes %s é %.2f\n", mes, total_rec);
                 total_rec = 0;
             break;
             }
         }
     }while (op != 0);
-
 }
 
 c_receber criarContaReceber() {
