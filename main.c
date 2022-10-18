@@ -318,8 +318,8 @@ void main(){
                         }
 
 
-                            else
-                                printf("\nNenhum fornecedor com o nome %s digitado foi encontrado.\n\n", nome);
+                             else if(strcmp(nome, pagar[i].nome) != 0 || r_Pm == 0 || r_Pa == 0)
+                                printf("\nNenhum fornecedor com o nome %s no mês %s do ano %s foi encontrado.\n\n", nome, mes, ano);
                                 system("pause");
 
                     }
@@ -391,8 +391,8 @@ void main(){
                         }
                     }
 
-                        else
-                            printf("\nNenhum cliente com o nome %s no mês %s do ano %s digitado foi encontrado.\n\n", nome, mes, ano);
+                        else if(strcmp(nome, receber[i].nome) != 0 || r_Rm == 0 || r_Ra == 0)
+                            printf("\nNenhum cliente com o nome %s no periodo %s/%s foi encontrado.\n\n", nome, mes, ano);
                             system ("pause");
                 }
             }
